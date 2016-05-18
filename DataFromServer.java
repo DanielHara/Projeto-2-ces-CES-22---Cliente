@@ -1,11 +1,14 @@
 import java.io.*;
 
+//Esta é a classe DataFromServer
 
 public class DataFromServer extends Thread  {
 	
 	private int x_Lula, y_Lula, x_Japa, y_Japa, x_Propina, y_Propina, n_Prisoes, n_Propina;
 	private Board B;
 	private InputStream StreamFromServer;
+	
+	//Construtor
 	
 	public DataFromServer (Board B, InputStream StreamFromServer)
 	{
@@ -32,6 +35,7 @@ public class DataFromServer extends Thread  {
 			System.out.println("ESTOU NO WHILE!");
 			try
 			{
+				//Com a string message, que vem do Servidor, encontramos as posições do Lula, do Japa e da Propina.
 				System.out.println("ESTOU NO Try!");
 				
 				bytesRead = StreamFromServer.read(reply);
