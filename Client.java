@@ -2,10 +2,14 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
     
+    
+    //Esta é a classe principal do Cliente.
     public class Client extends JFrame
     {
        	public Client ()
     	{
+       		//Pergunta o endereço IP do servidor e a porta.
+       		
        		String IPAdress = null;
        		String Porta = null;
        		int Port = 0;
@@ -26,6 +30,7 @@ import javax.swing.JOptionPane;
     		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	}
     	
+    	//Esta é a função main.
     	public static void main (String[] args)
     	{
     		Client Jogo = new Client ();
