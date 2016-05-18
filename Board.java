@@ -24,6 +24,8 @@ public class Board extends JPanel {
 		Right, Left, Up, Down;		
 	}
 	
+	//Declaração de variáveis
+	
 	private static final int Largura = 600;
 	private static final int Altura = 800;
 	
@@ -50,6 +52,8 @@ public class Board extends JPanel {
 	
 	DataFromServer Thread_Stream;
 	
+	
+	//Esta função Conecta o cliente a um servidor com endereço IP armazenado na String IPAdress e na porta Port.
 	public void Conectar (String IPAdress, int Port)
 	{
 		try
@@ -66,14 +70,17 @@ public class Board extends JPanel {
 		}
 	}
 	
+	
+	//Construtor
+	
+	
 	public Board (String IPAdress, int Port)
 	{
 		setBackground(Color.black);
 		setPreferredSize(new Dimension(Largura, Altura));
-		
-		//     timer = new Timer (10, this);
-		//     timer.start();
-		
+	
+	
+		//Carregar as imagens	
 		ImageIcon Imagem_PF = new ImageIcon("PF.png");
 		PF = Imagem_PF.getImage();
 		
@@ -98,9 +105,11 @@ public class Board extends JPanel {
 	
 	
 		Thread_Stream = new DataFromServer (this, StreamFromServer);
-		Thread_Stream.start();
+		Thread_Stream.start();    //Iniciar a Thread para ler os dados enviados pelo Servidor.
 	}
 	
+	
+	//Desenhar a tela.
 	@Override
 	public void paintComponent(Graphics g)
 	{
@@ -111,25 +120,28 @@ public class Board extends JPanel {
         Toolkit.getDefaultToolkit().sync();
 	}
 	
+	//Esta função seta a posição do Lula na posição (x,y)
 	public void set_Lula (int x, int y)
 	{
 		x_Lula = x;
 		y_Lula = y;
 	}
 	
+	//Esta função seta a posição da propina na posição (x,y)
 	public void set_Propina (int x, int y)
 	{
 		x_Propina = x;
 		y_Propina = y;
 	}
 	
-	
+	//Esta função seta a posição do Japa na posição (x,y)
 	public void set_Japa (int x, int y)
 	{
 		x_Japa = x;
 		y_Japa = y;
 	}
 	
+	//Esta função mostra o placar com n_Prisoes prisões e n_Propina propinas.
 	public void set_Placar (int n_Prisoes, int n_Propina)
 	{
 		Placar_Jogo.set_Prisao (n_Prisoes);
@@ -137,6 +149,7 @@ public class Board extends JPanel {
 		Placar_Jogo.Show_Placar();
 	}
 
+	//Esta função move o Japa com as setas do teclado e envia a informção da mudança de direção para o Servidor.
 	private class Controlador extends KeyAdapter
 	{
 		@Override
